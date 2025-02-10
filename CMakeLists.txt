@@ -125,6 +125,8 @@ if(realsense2_FOUND)
     )
 endif()
 
+# install library
+install(TARGETS ${PROJECT_NAME})
 
 # Build examples
 
@@ -135,10 +137,13 @@ add_executable(rgbd_tum
         Examples/RGB-D/rgbd_tum.cc)
 target_link_libraries(rgbd_tum ${PROJECT_NAME})
 
+install(TARGETS rgbd_tum)
+
 if(realsense2_FOUND)
     add_executable(rgbd_realsense_D435i
             Examples/RGB-D/rgbd_realsense_D435i.cc)
     target_link_libraries(rgbd_realsense_D435i ${PROJECT_NAME})
+    install(TARGETS rgbd_realsense_D435i)
 endif()
 
 
@@ -149,6 +154,7 @@ if(realsense2_FOUND)
     add_executable(rgbd_inertial_realsense_D435i
             Examples/RGB-D-Inertial/rgbd_inertial_realsense_D435i.cc)
     target_link_libraries(rgbd_inertial_realsense_D435i ${PROJECT_NAME})
+    install(TARGETS rgbd_inertial_realsense_D435i)
 endif()
 
 #Stereo examples
@@ -166,6 +172,8 @@ add_executable(stereo_tum_vi
         Examples/Stereo/stereo_tum_vi.cc)
 target_link_libraries(stereo_tum_vi ${PROJECT_NAME})
 
+install(TARGETS stereo_kitti stereo_euroc stereo_tum_vi)
+
 if(realsense2_FOUND)
     add_executable(stereo_realsense_t265
             Examples/Stereo/stereo_realsense_t265.cc)
@@ -174,6 +182,8 @@ if(realsense2_FOUND)
     add_executable(stereo_realsense_D435i
             Examples/Stereo/stereo_realsense_D435i.cc)
     target_link_libraries(stereo_realsense_D435i ${PROJECT_NAME})
+
+    install(TARGETS stereo_realsense_t265 stereo_realsense_D435i)
 endif()
 
 #Monocular examples
@@ -195,6 +205,8 @@ add_executable(mono_tum_vi
         Examples/Monocular/mono_tum_vi.cc)
 target_link_libraries(mono_tum_vi ${PROJECT_NAME})
 
+install(TARGETS mono_tum mono_kitti mono_euroc mono_tum_vi)
+
 if(realsense2_FOUND)
     add_executable(mono_realsense_t265
             Examples/Monocular/mono_realsense_t265.cc)
@@ -203,6 +215,8 @@ if(realsense2_FOUND)
     add_executable(mono_realsense_D435i
             Examples/Monocular/mono_realsense_D435i.cc)
     target_link_libraries(mono_realsense_D435i ${PROJECT_NAME})
+
+    install(TARGETS mono_realsense_t265 mono_realsense_D435i)
 endif()
 
 #Monocular inertial examples
@@ -216,6 +230,8 @@ add_executable(mono_inertial_tum_vi
         Examples/Monocular-Inertial/mono_inertial_tum_vi.cc)
 target_link_libraries(mono_inertial_tum_vi ${PROJECT_NAME})
 
+install(TARGETS mono_inertial_euroc mono_inertial_tum_vi)
+
 if(realsense2_FOUND)
     add_executable(mono_inertial_realsense_t265
             Examples/Monocular-Inertial/mono_inertial_realsense_t265.cc)
@@ -224,6 +240,8 @@ if(realsense2_FOUND)
     add_executable(mono_inertial_realsense_D435i
             Examples/Monocular-Inertial/mono_inertial_realsense_D435i.cc)
     target_link_libraries(mono_inertial_realsense_D435i ${PROJECT_NAME})
+
+    install(TARGETS mono_inertial_realsense_t265 mono_inertial_realsense_D435i)
 endif()
 
 #Stereo Inertial examples
@@ -237,6 +255,8 @@ add_executable(stereo_inertial_tum_vi
         Examples/Stereo-Inertial/stereo_inertial_tum_vi.cc)
 target_link_libraries(stereo_inertial_tum_vi ${PROJECT_NAME})
 
+install(TARGETS stereo_inertial_euroc stereo_inertial_tum_vi)
+
 if(realsense2_FOUND)
     add_executable(stereo_inertial_realsense_t265
             Examples/Stereo-Inertial/stereo_inertial_realsense_t265.cc)
@@ -245,6 +265,8 @@ if(realsense2_FOUND)
     add_executable(stereo_inertial_realsense_D435i
             Examples/Stereo-Inertial/stereo_inertial_realsense_D435i.cc)
     target_link_libraries(stereo_inertial_realsense_D435i ${PROJECT_NAME})
+
+    install(TARGETS stereo_inertial_realsense_t265 stereo_inertial_realsense_D435i)
 endif()
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Calibration)
@@ -256,6 +278,8 @@ if(realsense2_FOUND)
     add_executable(recorder_realsense_T265
             Examples/Calibration/recorder_realsense_T265.cc)
     target_link_libraries(recorder_realsense_T265 ${PROJECT_NAME})
+
+    install(TARGETS recorder_realsense_D435i recorder_realsense_T265)
 endif()
 
 #Old examples
